@@ -1,0 +1,35 @@
+---
+import { InputElement } from "./InputElement.tsx";
+import { TextAreaElement } from "./TextAreaElement.tsx";
+import { SelectElement } from "./SelectElement.tsx";
+
+interface Props {
+  formElements: any[];
+}
+
+const { formElements } = Astro.props;
+---
+
+<div class="grid gap-4">
+  {
+    formElements.map((element) => (
+      <details>
+        <summary class="p-1 font-semibold w-fit">{element.label}</summary>
+        <div class="p-2">
+          {(() => {
+            switch (element.type) {
+              case "select":
+              case "multiselect":
+              case "datalist":
+                return <SelectElement client:load {...element} />;
+              case "textarea":
+                return <TextAreaElement client:load {...element} />;
+              default:
+                return <InputElement client:load {...element} />;
+            }
+          })()}
+        </div>
+      </details>
+    ))
+  }
+</div>

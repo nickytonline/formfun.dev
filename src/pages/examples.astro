@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { inputElements } from "../utils/formElements.tsx";
+import Header from "../components/Header.astro";
+import FormElements from "../components/FormElements.astro";
+---
+
+<Layout
+  title="Examples"
+  description="Examples of modern CSS usage for HTML forms."
+>
+  <Header title="Examples" />
+  <main id="main">
+    <FormElements formElements={inputElements} />
+  </main>
+</Layout>

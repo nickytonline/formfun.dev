@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { formElementSelectors } from "../utils/formElementSelectors.ts";
+---
+
+<Layout
+  title="Examples"
+  description="References for modern CSS usage for HTML forms."
+>
+  <Header title="References" />
+  <main id="main">
+    <p>
+      Here are some CSS <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes"
+        >pseudo-classes</a
+      > for modern CSS usage for HTML forms.
+    </p>
+    <ul class="m-6
+         list-disc grid gap-2">
+      {
+        formElementSelectors.map(({ url, title, notes }) => {
+          return (
+            <li>
+              <span class="grid gap-2 w-fit">
+                <a href={url}>{title}</a>
+                {notes ? <p>{notes}</p> : null}
+              </span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>

@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Welcome to formfun.dev"
+  description="Welcome to formfun.dev, a resource for bite sized info on modern CSS usage for HTML forms."
+>
+  <div
+    class="grid gap-4 justify-center md:place-content-center md:h-screen-minus-nav m-12 md:m-0"
+  >
+    <header>
+      <h1 class="md:text-6xl font-semibold text-center">
+        Welcome to <span
+          class="italic bg-gradient-to-r from-red-600 via-purple-600 to-purple-600 text-transparent bg-clip-text pr-0.5"
+          >form<span class="uppercase">fun</span></span
+        >.dev
+      </h1>
+    </header>
+    <main id="main">
+      <p class="md:text-2xl text-center">
+        A place for bite sized info on modern HTML forms.
+      </p>
+    </main>
+  </div>
+</Layout>

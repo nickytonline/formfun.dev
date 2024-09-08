@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import constraintValidationAPI from "../utils/contraintApiItems";
+---
+
+<Layout
+  title="Examples"
+  description="References for modern CSS usage for HTML forms."
+>
+  <Header title="References" />
+  <main id="main">
+    <p>
+      The Constraint Validation API provides a way to implement custom form
+      validation in web applications. It offers a set of properties and methods
+      that allow developers to check the validity of form inputs and display
+      custom error messages.
+    </p>
+    <ul class="m-6
+         list-disc grid gap-2">
+      {
+        constraintValidationAPI.map(({ type, url, name, description }) => {
+          return (
+            <li>
+              <span class="grid gap-2">
+                <span class="flex gap-2">
+                  <a href={url}>{name}</a>
+                  <span>({type})</span>
+                </span>
+                <p>{description}</p>
+              </span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>
