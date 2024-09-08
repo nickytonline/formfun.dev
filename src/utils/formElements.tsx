@@ -134,7 +134,7 @@ export const inputElements = [
     requiredMessage: "Date is required",
     validationProperties: {
       min: "1900-01-01",
-      max: "2099-12-31",
+      max: "2025-12-31",
     },
   },
   {
@@ -154,7 +154,7 @@ export const inputElements = [
     requiredMessage: "Time is required",
     validationProperties: {
       min: "00:00",
-      max: "23:59",
+      max: "22:00",
     },
   },
   {
