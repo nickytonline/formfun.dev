@@ -36,24 +36,43 @@ const ConstraintValidationPanel = ({
       willValidate: { value: inputRef.willValidate, type: "boolean" },
     };
 
-    if ("min" in inputRef) {
-      props.min = { value: inputRef.min, type: "string" };
+    if (
+      inputRef instanceof HTMLInputElement &&
+      [
+        "range",
+        "number",
+        "date",
+        "month",
+        "week",
+        "time",
+        "datetime-local",
+      ].includes(inputRef.type)
+    ) {
+      if ("min" in inputRef) {
+        props.min = { value: inputRef.min, type: "number" };
+      }
+
+      if ("max" in inputRef) {
+        props.max = { value: inputRef.max, type: "number" };
+      }
+
+      if ("step" in inputRef) {
+        props.step = { value: inputRef.step, type: "number" };
+      }
     }
 
-    if ("max" in inputRef) {
-      props.max = { value: inputRef.max, type: "string" };
-    }
+    if (
+      (inputRef instanceof HTMLInputElement &&
+        ["text", "email", "password", "tel", "url"].includes(inputRef.type)) ||
+      inputRef instanceof HTMLTextAreaElement
+    ) {
+      if ("minLength" in inputRef && inputRef.maxLength !== -1) {
+        props.minLength = { value: inputRef.minLength, type: "number" };
+      }
 
-    if ("minLength" in inputRef) {
-      props.minLength = { value: inputRef.minLength, type: "number" };
-    }
-
-    if ("maxLength" in inputRef) {
-      props.maxLength = { value: inputRef.maxLength, type: "number" };
-    }
-
-    if ("step" in inputRef) {
-      props.step = { value: inputRef.step, type: "string" };
+      if ("maxLength" in inputRef && inputRef.maxLength !== -1) {
+        props.maxLength = { value: inputRef.maxLength, type: "number" };
+      }
     }
 
     if ("pattern" in inputRef) {
@@ -160,7 +179,7 @@ const ConstraintValidationPanel = ({
               ) : (
                 <input
                   type={type}
-                  value={String(value)}
+                  value={value}
                   onChange={(e) =>
                     handleValueChange(key, e.currentTarget.value)
                   }
