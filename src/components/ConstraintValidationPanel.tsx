@@ -49,11 +49,21 @@ const ConstraintValidationPanel = ({
       ].includes(inputRef.type)
     ) {
       if ("min" in inputRef) {
-        props.min = { value: inputRef.min, type: "number" };
+        props.min = {
+          value: inputRef.min,
+          type: ["range", "number"].includes(inputRef.type)
+            ? "number"
+            : "string",
+        };
       }
 
       if ("max" in inputRef) {
-        props.max = { value: inputRef.max, type: "number" };
+        props.max = {
+          value: inputRef.min,
+          type: ["range", "number"].includes(inputRef.type)
+            ? "number"
+            : "string",
+        };
       }
 
       if ("step" in inputRef) {
@@ -83,27 +93,29 @@ const ConstraintValidationPanel = ({
   };
 
   createEffect(() => {
-    if (inputRef) {
-      const resetValidationProps = () => {
-        setTimeout(updateValidationProps);
-      };
-
-      updateValidationProps();
-
-      const observer = new MutationObserver(updateValidationProps);
-      observer.observe(inputRef, { attributes: true });
-
-      inputRef.addEventListener("input", updateValidationProps);
-      inputRef.addEventListener("change", updateValidationProps);
-      inputRef.form?.addEventListener("reset", resetValidationProps);
-
-      return () => {
-        observer.disconnect();
-        inputRef.removeEventListener("input", updateValidationProps);
-        inputRef.removeEventListener("change", updateValidationProps);
-        inputRef.form?.removeEventListener("reset", resetValidationProps);
-      };
+    if (!inputRef) {
+      return;
     }
+
+    const resetValidationProps = () => {
+      setTimeout(updateValidationProps);
+    };
+
+    updateValidationProps();
+
+    const observer = new MutationObserver(updateValidationProps);
+    observer.observe(inputRef, { attributes: true });
+
+    inputRef.addEventListener("input", updateValidationProps);
+    inputRef.addEventListener("change", updateValidationProps);
+    inputRef.form?.addEventListener("reset", resetValidationProps);
+
+    return () => {
+      observer.disconnect();
+      inputRef.removeEventListener("input", updateValidationProps);
+      inputRef.removeEventListener("change", updateValidationProps);
+      inputRef.form?.removeEventListener("reset", resetValidationProps);
+    };
   });
 
   const handleValueChange = (key: string, value: string) => {
@@ -152,12 +164,13 @@ const ConstraintValidationPanel = ({
           inputRef.required = !inputRef.required;
           break;
       }
+
       updateValidationProps();
     }
   };
 
   const isEditable = (key: string) => {
-    return [
+    const keys = [
       "min",
       "max",
       "minLength",
@@ -165,7 +178,13 @@ const ConstraintValidationPanel = ({
       "step",
       "pattern",
       "required",
-    ].includes(key);
+    ];
+
+    if (!inputRef?.validity.valid) {
+      keys.push("validationMessage");
+    }
+
+    return keys.includes(key);
   };
 
   return (
@@ -190,8 +209,8 @@ const ConstraintValidationPanel = ({
                 <input
                   type={type}
                   value={value}
-                  onChange={(e) =>
-                    handleValueChange(key, e.currentTarget.value)
+                  onChange={(event) =>
+                    handleValueChange(key, event.currentTarget.value)
                   }
                   class="border rounded px-1 w-full"
                   readOnly={!isEditable(key)}
