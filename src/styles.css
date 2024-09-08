@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+input,
+select,
+textarea,
+button,
+summary,
+a {
+  @apply outline-purple-700;
+  @apply outline-offset-4;
+}
+
+a:hover {
+  @apply text-purple-700;
+}
+
+h1,
+h2,
+h3 {
+  @apply leading-tight;
+}
+
+h1 {
+  @apply text-2xl;
+  @apply md:text-3xl;
+}
+
+h2 {
+  @apply text-xl;
+  @apply md:text-2xl;
+}
+
+h3 {
+  @apply text-lg;
+  @apply md:text-xl;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+details {
+  @apply p-2;
+  @apply md:p-4;
+  @apply border;
+  @apply rounded-lg;
+}
+
+summary::marker {
+  @apply text-pink-600;
+}
+
+a:not([class]) {
+  @apply underline;
+  @apply underline-offset-4;
+}
+
+input,
+select,
+textarea {
+  @apply border;
+  @apply border-2;
+}
+
+:user-valid,
+:not([data-user-pseudos]):valid,
+:in-range {
+  @apply border-green-700;
+}
+
+[novalidate] :user-valid + .user-interact,
+[novalidate] :not([data-user-pseudos]):valid + .user-interact {
+  @apply relative;
+  @apply left-0;
+  @apply visible;
+  @apply before:content-["✅"];
+}
+
+[novalidate] :user-invalid + .user-interact,
+[novalidate] :not([data-user-pseudos]):invalid + .user-interact {
+  @apply visible;
+  @apply text-red-800;
+}
+
+:not([data-user-pseudos]):required:invalid,
+:user-invalid,
+:out-of-range {
+  @apply border-red-800;
+  @apply bg-red-100;
+}
+
+input:read-only,
+textarea:read-only,
+select:read-only datalist:read-only {
+  @apply border-gray-600;
+  @apply bg-gray-100;
+}
+
+input:disabled {
+  @apply border-gray-600;
+  @apply bg-gray-300;
+  @apply text-gray-700;
+}
