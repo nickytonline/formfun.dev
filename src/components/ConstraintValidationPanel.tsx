@@ -128,6 +128,16 @@ const ConstraintValidationPanel = ({
             inputRef.max = value;
           }
           break;
+        case "minLength":
+          if ("minLength" in inputRef) {
+            inputRef.minLength = Number(value);
+          }
+          break;
+        case "maxLength":
+          if ("maxLength" in inputRef) {
+            inputRef.maxLength = Number(value);
+          }
+          break;
         case "step":
           if ("step" in inputRef) {
             inputRef.step = value;
