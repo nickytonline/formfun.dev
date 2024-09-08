@@ -102,10 +102,10 @@ input:read-only,
 textarea:read-only,
 select:read-only datalist:read-only {
   @apply border-gray-600;
-  @apply bg-gray-100;
+  @apply bg-gray-200;
 }
 
-input:disabled {
+:disabled {
   @apply border-gray-600;
   @apply bg-gray-300;
   @apply text-gray-700;
