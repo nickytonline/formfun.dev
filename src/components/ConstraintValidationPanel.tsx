@@ -142,7 +142,7 @@ const ConstraintValidationPanel = ({
   return (
     <div class="p-4 border rounded-md bg-gray-50 w-fit">
       <h2 class="text-lg font-semibold mb-2">Constraint Validation API</h2>
-      <div class="flex flex-col gap-2 overflow-auto w-fit py-2 pr-2">
+      <div class="flex flex-col gap-2 overflow-auto w-fit py-2 pr-2 max-h-48 md:max-h-full">
         <For each={Object.entries(validationProps())}>
           {([key, { value, type }]) => (
             <label class="grid grid-cols-2 gap-2">

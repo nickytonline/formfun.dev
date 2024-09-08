@@ -12,8 +12,8 @@ const { formElements } = Astro.props;
 
 <div class="grid gap-4">
   {
-    formElements.map((element) => (
-      <details>
+    formElements.map((element, index) => (
+      <details {...(index === 0 && { open: true })}>
         <summary class="p-1 font-semibold w-fit">{element.label}</summary>
         <div class="p-2">
           {(() => {

@@ -71,29 +71,29 @@ textarea {
   @apply border-2;
 }
 
-:user-valid,
-:not([data-user-pseudos]):valid,
-:in-range {
+form :user-valid,
+form :not([data-user-pseudos]):valid,
+form :in-range {
   @apply border-green-700;
 }
 
-[novalidate] :user-valid + .user-interact,
-[novalidate] :not([data-user-pseudos]):valid + .user-interact {
+form[novalidate] :user-valid + .user-interact,
+form[novalidate] :not([data-user-pseudos]):valid + .user-interact {
   @apply relative;
   @apply left-0;
   @apply visible;
   @apply before:content-["✅"];
 }
 
-[novalidate] :user-invalid + .user-interact,
-[novalidate] :not([data-user-pseudos]):invalid + .user-interact {
+form[novalidate] :user-invalid + .user-interact,
+form[novalidate] :not([data-user-pseudos]):invalid + .user-interact {
   @apply visible;
   @apply text-red-800;
 }
 
-:not([data-user-pseudos]):required:invalid,
-:user-invalid,
-:out-of-range {
+form :not([data-user-pseudos]):required:invalid,
+form :user-invalid,
+form :out-of-range {
   @apply border-red-800;
   @apply bg-red-100;
 }
