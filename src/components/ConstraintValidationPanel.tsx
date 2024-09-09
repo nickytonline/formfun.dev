@@ -1,4 +1,4 @@
-import { createEffect, createSignal, For, Show, type Setter } from "solid-js";
+import { createEffect, createSignal, For, type Setter } from "solid-js";
 import { ToggleButton } from "./ToggleButton";
 
 interface ConstraintValidationPanelProps {

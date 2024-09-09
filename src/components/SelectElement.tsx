@@ -4,7 +4,6 @@ import ConstraintValidationPanel from "./ConstraintValidationPanel";
 import { EditStatePanel, type InputState } from "./EditStatePanel";
 import { FormButtons } from "./FormButtons";
 import { CustomError } from "./CustomError";
-import { F } from "../../dist/_astro/web.DvO6vNyH";
 
 interface SelectElementProps {
   type: string;
