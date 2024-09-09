@@ -1,9 +1,10 @@
-import { createSignal } from "solid-js";
+import { createSignal, For } from "solid-js";
 import { ToggleButton } from "./ToggleButton";
 import ConstraintValidationPanel from "./ConstraintValidationPanel";
 import { EditStatePanel, type InputState } from "./EditStatePanel";
 import { FormButtons } from "./FormButtons";
 import { CustomError } from "./CustomError";
+import { F } from "../../dist/_astro/web.DvO6vNyH";
 
 interface SelectElementProps {
   type: string;
@@ -88,9 +89,11 @@ export const SelectElement = ({
                   {...validationProperties}
                 />
                 <datalist id={`${type}-list`}>
-                  {options.map((option) => (
-                    <option value={option.value}>{option.label}</option>
-                  ))}
+                  <For each={options}>
+                    {(option) => (
+                      <option value={option.value}>{option.label}</option>
+                    )}
+                  </For>
                 </datalist>
               </>
             ) : (
@@ -109,9 +112,11 @@ export const SelectElement = ({
                 {...(userPseudos() && { ["data-user-pseudos"]: "true" })}
                 {...validationProperties}
               >
-                {options.map((option) => (
-                  <option value={option.value}>{option.label}</option>
-                ))}
+                <For each={options}>
+                  {(option) => (
+                    <option value={option.value}>{option.label}</option>
+                  )}
+                </For>
               </select>
             )}
             <CustomError message={validationMessage} />
@@ -126,6 +131,7 @@ export const SelectElement = ({
         class={`grid gap-2 mt-2 lg:mt-4 md:flex-wrap ${type === "color" ? "hidden" : ""}`}
       >
         <EditStatePanel
+          controlType={type}
           onEditStateChanged={handleInputStateChange}
           editStates={INPUT_STATES}
           currentState={inputState()}

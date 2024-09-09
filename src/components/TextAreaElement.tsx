@@ -98,6 +98,7 @@ export const TextAreaElement = ({
         class={`grid gap-2 mt-2 lg:mt-4 md:flex-wrap ${type === "color" ? "hidden" : ""}`}
       >
         <EditStatePanel
+          controlType={type}
           onEditStateChanged={handleInputStateChange}
           editStates={INPUT_STATES}
           currentState={inputState()}
