@@ -48,17 +48,25 @@ const ogImageUrl = `${siteUrl}/assets/og.png`;
           >form<span class="uppercase">fun</span></span
         >.dev
       </a>
-      <div
-        class="flex
-            gap-2
-            flex-wrap
-            items-center
-            md:text-xl"
+      <ul
+        class="flex flex-wrap items-center gap-2 md:gap-4 md:text-xl ml-6 mt-4"
       >
-        <a href="/playground">Playground</a>
-        <a href="/form-pseudo-classes">CSS Pseudo-Classes</a>
-        <a href="/constraint-api">Constraint Validation API</a>
-      </div>
+        <li
+          class="mr-6 pl-0.5 md:pl-1.5 relative before:content-['🌈'] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:opacity-35 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100"
+        >
+          <a href="/playground">Playground</a>
+        </li>
+        <li
+          class="mr-6 pl-0.5 md:pl-1.5 relative before:content-['💅'] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:opacity-35 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100"
+        >
+          <a href="/form-pseudo-classes">CSS Pseudo-Classes</a>
+        </li>
+        <li
+          class="mr-6 pl-0.5 md:pl-1.5 relative before:content-['💻'] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:opacity-35 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100"
+        >
+          <a href="/constraint-api">Constraint Validation API</a>
+        </li>
+      </ul>
     </nav>
     <slot />
   </body>
