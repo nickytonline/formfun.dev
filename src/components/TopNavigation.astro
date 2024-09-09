@@ -1,0 +1,44 @@
+---
+const { currentPath } = Astro.props;
+---
+
+<nav class="grid gap-2">
+  <a class="text-2xl md:text-3xl font-semibold w-fit" href="/">
+    <span
+      class="italic bg-gradient-to-r from-pink-600 via-purple-600 to-purple-600 text-transparent bg-clip-text"
+      >form<span class="uppercase">FUN</span></span
+    >.dev
+  </a>
+  <ul class="flex flex-wrap items-center gap-2 md:gap-4 md:text-xl ml-6 mt-4">
+    <li
+      class:list={[
+        "mr-6 pl-0.5 md:pl-1.5 relative before:content-['🌈'] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100",
+        { "before:opacity-100": currentPath === "/playground" },
+        { "text-pink-800": currentPath === "/playground" },
+        { "before:opacity-35": currentPath !== "/playground" },
+      ]}
+    >
+      <a href="/playground">Playground</a>
+    </li>
+    <li
+      class:list={[
+        "mr-6 pl-0.5 md:pl-1.5 relative before:content-['💅'] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100",
+        { "before:opacity-100": currentPath === "/form-pseudo-classes" },
+        { "text-pink-800": currentPath === "/form-pseudo-classes" },
+        { "before:opacity-35": currentPath !== "/form-pseudo-classes" },
+      ]}
+    >
+      <a href="/form-pseudo-classes">CSS Pseudo-Classes</a>
+    </li>
+    <li
+      class:list={[
+        "mr-6 pl-0.5 md:pl-1.5 relative before:content-['💻'] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100",
+        { "before:opacity-100": currentPath === "/constraint-api" },
+        { "text-pink-800": currentPath === "/constraint-api" },
+        { "before:opacity-35": currentPath !== "/constraint-api" },
+      ]}
+    >
+      <a href="/constraint-api">Constraint Validation API</a>
+    </li>
+  </ul>
+</nav>
