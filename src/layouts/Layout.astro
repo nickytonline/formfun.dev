@@ -7,6 +7,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 
+import { ViewTransitions } from "astro:transitions";
 import SkipLink from "../components/SkipLink.astro";
 import TopNavigation from "../components/TopNavigation.astro";
 import "../styles.css";
@@ -28,6 +29,7 @@ const { currentPath } = Astro.props;
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌈</text></svg>"
     />
     <title>formfun.dev - {title}</title>
+    <ViewTransitions />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={`formfun.dev - ${title}`} />
