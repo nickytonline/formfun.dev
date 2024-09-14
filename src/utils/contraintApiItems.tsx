@@ -34,14 +34,13 @@ const constraintValidationAPI = [
     name: "checkValidity",
     url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/checkValidity",
     description:
-      "Reports the validity of an form element. Returns true if the field is valid, false otherwise.",
+      "Reports the validity of an input based element. Returns true if the field is valid, false otherwise. If used on a form element, it will report the validity of all fields.",
   },
   {
     type: "method",
     name: "reportValidity",
     url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/reportValidity",
-    description:
-      "Reports the validity of an form element. Returns true if the field is valid, false otherwise. On top that, if the element is invalid it displays the issue to the user in the browser so long as the event isn't canceled.",
+    description: `Reports the validity of an input based element. Returns true if the field is valid, false otherwise. On top that, if the element is invalid it displays the issue to the user in the browser so long as the event isn't canceled. If used on a form element, it will report the validity of all fields and fire an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event">invalid</a> event on each invalid element.`,
   },
   {
     type: "method",

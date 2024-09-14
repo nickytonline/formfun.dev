@@ -28,7 +28,7 @@ import constraintValidationAPI from "../utils/contraintApiItems";
                   <a href={url}>{name}</a>
                   <span>({type})</span>
                 </span>
-                <p>{description}</p>
+                <p set:html={description} />
               </span>
             </li>
           );
