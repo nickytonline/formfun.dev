@@ -13,7 +13,7 @@ export const Button = (props: ButtonProps) => {
 
   const getButtonClass = () => {
     const baseClass =
-      "px-2 py-1 rounded-md w-fit transition-colors w-full sm:w-fit";
+      "px-2.5 py-1.5 rounded-md w-fit transition-colors w-full sm:w-fit";
     const variantClass =
       local.variant === "secondary"
         ? "bg-gray-500 text-white hover:bg-gray-600"

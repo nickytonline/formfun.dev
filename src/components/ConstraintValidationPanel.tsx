@@ -191,7 +191,7 @@ const ConstraintValidationPanel = ({
   return (
     <div class="p-4 border rounded-md bg-gray-50 w-full md:w-fit">
       <h2 class="text-lg font-semibold mb-2">Constraint Validation API</h2>
-      <div class="grid gap-2 overflow-auto w-full md:w-fit py-2 pr-2 max-h-48 md:max-h-full">
+      <div class="grid gap-2 overflow-auto w-full md:w-fit py-2 px-2 max-h-48 md:max-h-full">
         <div class="grid sm:grid-cols-2 gap-2 items-center">
           <Button
             variant="primary"
@@ -202,7 +202,7 @@ const ConstraintValidationPanel = ({
             reportValidity()
           </Button>
           <input
-            class="border rounded px-1 w-full"
+            class="border rounded p-1 w-full"
             readonly
             value={`${isValid() === undefined ? "?" : isValid()}`}
           />
@@ -217,7 +217,7 @@ const ConstraintValidationPanel = ({
             checkValidity()
           </Button>
           <input
-            class="border rounded px-1 w-full"
+            class="border rounded p-1 w-full"
             readonly
             value={`${isValid() === undefined ? "?" : isValid()}`}
           />
@@ -245,7 +245,7 @@ const ConstraintValidationPanel = ({
                         handleValueChange(key, event.currentTarget.value)
                       }
                       rows={4}
-                      class="border rounded px-1 w-full"
+                      class="border rounded p-1 w-full"
                       readOnly={!isEditable(key)}
                     />
                   ) : (
@@ -255,7 +255,7 @@ const ConstraintValidationPanel = ({
                       onChange={(event) =>
                         handleValueChange(key, event.currentTarget.value)
                       }
-                      class="border rounded px-1 w-full"
+                      class="border rounded p-1 w-full"
                       readOnly={!isEditable(key)}
                     />
                   )}
