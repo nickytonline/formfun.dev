@@ -32,7 +32,7 @@ const ConstraintValidationPanel = ({
       },
       validationMessage: {
         value: inputRef.validationMessage,
-        type: "string",
+        type: "multiline",
       },
       willValidate: { value: inputRef.willValidate, type: "boolean" },
     };
@@ -237,15 +237,29 @@ const ConstraintValidationPanel = ({
                   }
                 />
               ) : (
-                <input
-                  type={type}
-                  value={value}
-                  onChange={(event) =>
-                    handleValueChange(key, event.currentTarget.value)
-                  }
-                  class="border rounded px-1 w-full"
-                  readOnly={!isEditable(key)}
-                />
+                <>
+                  {type === "multiline" ? (
+                    <textarea
+                      value={value}
+                      onChange={(event) =>
+                        handleValueChange(key, event.currentTarget.value)
+                      }
+                      rows={4}
+                      class="border rounded px-1 w-full"
+                      readOnly={!isEditable(key)}
+                    />
+                  ) : (
+                    <input
+                      type={type}
+                      value={value}
+                      onChange={(event) =>
+                        handleValueChange(key, event.currentTarget.value)
+                      }
+                      class="border rounded px-1 w-full"
+                      readOnly={!isEditable(key)}
+                    />
+                  )}
+                </>
               )}
             </label>
           )}
