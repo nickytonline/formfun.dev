@@ -18,7 +18,7 @@ const constraintValidationAPI = [
   {
     type: "property",
     name: "willValidate",
-    url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/willValidate",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals/willValidate",
     description:
       "Returns a boolean indicating if the element is a candidate for constraint validation.",
   },
