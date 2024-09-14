@@ -1,5 +1,6 @@
 import { createEffect, createSignal, For, type Setter } from "solid-js";
 import { ToggleButton } from "./ToggleButton";
+import { Button } from "./Button";
 
 interface ConstraintValidationPanelProps {
   inputRef:
@@ -17,7 +18,7 @@ const ConstraintValidationPanel = ({
   const [validationProps, setValidationProps] = createSignal<
     Record<string, any>
   >({});
-
+  const [isValid, setIsValid] = createSignal<boolean | undefined>();
   const updateValidationProps = () => {
     if (!inputRef) return;
 
@@ -190,10 +191,40 @@ const ConstraintValidationPanel = ({
   return (
     <div class="p-4 border rounded-md bg-gray-50 w-fit">
       <h2 class="text-lg font-semibold mb-2">Constraint Validation API</h2>
-      <div class="flex flex-col gap-2 overflow-auto w-fit py-2 pr-2 max-h-48 md:max-h-full">
+      <div class="grid gap-2 overflow-auto w-fit py-2 pr-2 max-h-48 md:max-h-full">
+        <div class="grid sm:grid-cols-2 gap-2 items-center">
+          <Button
+            variant="primary"
+            onClick={() => {
+              setIsValid(inputRef?.reportValidity());
+            }}
+          >
+            reportValidity()
+          </Button>
+          <input
+            class="border rounded px-1 w-full"
+            readonly
+            value={`${isValid() === undefined ? "?" : isValid()}`}
+          />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-2 items-center">
+          <Button
+            variant="primary"
+            onClick={() => {
+              setIsValid(inputRef?.checkValidity());
+            }}
+          >
+            checkValidity()
+          </Button>
+          <input
+            class="border rounded px-1 w-full"
+            readonly
+            value={`${isValid() === undefined ? "?" : isValid()}`}
+          />
+        </div>
         <For each={Object.entries(validationProps())}>
           {([key, { value, type }]) => (
-            <label class="grid grid-cols-2 gap-2">
+            <label class="grid sm:grid-cols-2 gap-2">
               <span>{key}</span>
               {key === "required" ? (
                 <ToggleButton
