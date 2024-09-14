@@ -1,0 +1,5 @@
+[[redirects]]
+from = "https://formcss.com/*"
+to = "https://formfun.dev/:splat"
+status = 301
+force = true
