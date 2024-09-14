@@ -87,4 +87,8 @@ export const formElementSelectors = [
     title: ":autofill",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:autofill",
   },
+  {
+    title: ":placeholder-shown",
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown",
+  },
 ];
