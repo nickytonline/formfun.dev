@@ -17,7 +17,7 @@ export const formElementSelectors = [
     title: ":invalid",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid",
     notes:
-      "The :valid pseudo-class applies to form elements as well as forms that are in a valid state.",
+      "The :valid pseudo-class applies to form elements as well as forms that are in a invalid state.",
   },
   {
     title: ":user-valid",
