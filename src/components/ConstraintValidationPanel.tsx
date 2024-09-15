@@ -123,10 +123,8 @@ const ConstraintValidationPanel = ({
     if (inputRef) {
       switch (key) {
         case "validationMessage":
-          if (!inputRef.validity.valid) {
-            inputRef.setCustomValidity(value);
-            setValidationMessage(value);
-          }
+          inputRef.setCustomValidity(value);
+          setValidationMessage(value);
           break;
         case "min":
           if ("min" in inputRef) {
@@ -176,11 +174,8 @@ const ConstraintValidationPanel = ({
       "step",
       "pattern",
       "required",
+      "validationMessage",
     ];
-
-    if (!inputRef?.validity.valid) {
-      keys.push("validationMessage");
-    }
 
     return keys.includes(key);
   };
