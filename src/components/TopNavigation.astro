@@ -40,5 +40,17 @@ const { currentPath } = Astro.props;
     >
       <a href="/constraint-api">Constraint Validation API</a>
     </li>
+    <li
+      class:list={[
+        "mr-6 pl-0.5 md:pl-1.5 relative before:content-[''] before:absolute before:-left-6 before:top-1/2 before:-translate-y-1/2 before:transition-opacity before:duration-300 hover:before:opacity-100 focus-within:before:opacity-100 before:bg-[url('/assets/github-mark.svg')] before:bg-no-repeat before:bg-center before:bg-contain before:w-5 before:h-5",
+        { "before:opacity-100": currentPath === "/constraint-api" },
+        { "text-pink-800": currentPath === "/constraint-api" },
+        { "before:opacity-35": currentPath !== "/constraint-api" },
+      ]}
+    >
+      <a href="https://github.com/nickytonline/formfun.dev"
+        ><span class="sr-only">View source code on&nbsp;</span>GitHub</a
+      >
+    </li>
   </ul>
 </nav>
