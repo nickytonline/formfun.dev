@@ -186,9 +186,9 @@ const ConstraintValidationPanel = ({
   };
 
   return (
-    <div class="p-4 border rounded-md bg-gray-50 w-full md:w-fit">
+    <div class="p-4 border rounded-md bg-gray-50 w-full md:w-fit lg:w-1/2 lg:max-w-5xl">
       <h2 class="text-lg font-semibold mb-2">Constraint Validation API</h2>
-      <div class="grid gap-2 overflow-auto w-full md:w-fit py-2 px-2 max-h-48 md:max-h-full">
+      <div class="grid gap-2 overflow-auto w-full md:w-fit lg:w-full py-2 px-2 max-h-60 md:max-h-full">
         <div class="grid sm:grid-cols-2 gap-2 items-center">
           <Button
             variant="primary"
