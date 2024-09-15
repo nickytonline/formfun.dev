@@ -81,7 +81,6 @@ export const InputElement = ({
               class="rounded p-2 max-w-72 lg:max-w-96 min-w-72"
               onFocus={() => {
                 setFormSubmitMessage("");
-                inputRef?.setCustomValidity("");
               }}
               required
               {...(userPseudos() && { ["data-user-pseudos"]: "true" })}

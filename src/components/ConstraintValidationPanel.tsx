@@ -126,9 +126,6 @@ const ConstraintValidationPanel = ({
           if (!inputRef.validity.valid) {
             inputRef.setCustomValidity(value);
             setValidationMessage(value);
-          } else {
-            inputRef.setCustomValidity("");
-            setValidationMessage("");
           }
           break;
         case "min":
