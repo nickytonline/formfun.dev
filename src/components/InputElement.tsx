@@ -59,11 +59,16 @@ export const InputElement = ({
     event.preventDefault();
   };
 
+  const onReset = () => {
+    setFormSubmitMessage("");
+  };
+
   return (
     <>
       <form
         id={`form-${type}`}
         onSubmit={handleSubmit}
+        onReset={onReset}
         class="grid gap-4 mb-4"
         {...(!builtinValidation() && { noValidate: true })}
       >
