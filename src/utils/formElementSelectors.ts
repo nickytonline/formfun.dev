@@ -88,10 +88,6 @@ export const formElementSelectors = [
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:autofill",
   },
   {
-    title: ":placeholder-shown",
-    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown",
-  },
-  {
     title: ":empty",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:empty",
   },
