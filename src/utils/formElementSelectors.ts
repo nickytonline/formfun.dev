@@ -91,4 +91,8 @@ export const formElementSelectors = [
     title: ":placeholder-shown",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown",
   },
+  {
+    title: ":empty",
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:empty",
+  },
 ];
