@@ -41,6 +41,13 @@ const constraintValidationAPI = [
     url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity",
     description: "Sets a custom error message and marks the field as invalid.",
   },
+  {
+    type: "event",
+    name: "invalid",
+    url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event",
+    description:
+      "Fires when a submittable element has been checked and doesn't satisfy its constraints",
+  },
 ] as const;
 
 export default constraintValidationAPI;
