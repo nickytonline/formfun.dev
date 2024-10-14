@@ -6,6 +6,10 @@ This is the source code for the formFUN.dev website. It is built using [Astro](h
 
 ![formFUN.dev OG image](public/assets/og.png)
 
+This tool was created as a demo for my Netlify Compose 2024 talk, Why HTML Forms Still Rule the Web
+
+[![my Netlify Compose 2024 talk, Why HTML Forms Still Rule the Web](https://i3.ytimg.com/vi/1U7b7SwKv_s/maxresdefault.jpg)](https://youtu.be/1U7b7SwKv_s)
+
 ## 🤝 Contributing
 
 If you're interested in contributing to the project, please read the [Contributing Guidelines](CONTRIBUTING.md).
